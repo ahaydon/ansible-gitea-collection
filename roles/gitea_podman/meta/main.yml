@@ -1,0 +1,17 @@
+galaxy_info:
+  author: Adam Haydon
+  description: Deploys Gitea in a Podman container managed by systemd.
+  license: MIT
+
+  min_ansible_version: "2.1"
+
+  platforms:
+    - name: Ubuntu
+      versions:
+        - jammy
+
+  galaxy_tags:
+    - gitea
+    - podman
+    - systemd
+    - container

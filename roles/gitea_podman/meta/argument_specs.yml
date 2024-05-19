@@ -1,0 +1,63 @@
+---
+argument_specs:
+  main:
+    short_description: Main entrypoint for the gitea_podman role
+    description:
+      - This is the main entrypoint for the C(gitea_podman) role.
+    author: Adam Haydon
+    options:
+      gitea_podman_home:
+        type: path
+        required: true
+        description:
+          - The path for the config and data.
+
+      gitea_podman_mariadb_root_passwd:
+        type: str
+        required: true
+        description:
+          - The password for the database root user.
+        no_log: true
+
+      gitea_podman_db_passwd:
+        type: str
+        required: true
+        description:
+          - The password for the gitea database user.
+        no_log: true
+
+      gitea_podman_name:
+        type: str
+        default: gitea
+        description:
+          - Name of the container and service.
+
+      gitea_podman_version:
+        type: str
+        default: latest-rootless
+        description:
+          - The tag to use for the Gitea container image.
+
+      gitea_podman_db_version:
+        type: str
+        default: latest
+        description:
+          - The tag to use for the MariaDB container image.
+
+      gitea_podman_user:
+        type: str
+        default: gitea
+        description:
+          - The name of the user to run the Podman containers.
+
+      gitea_podman_group:
+        type: str
+        default: "{{ gitea_podman_user }}"
+        description:
+          - The name of the primary group for the gitea user.
+
+      gitea_podman_network:
+        type: str
+        default: gitea
+        description:
+          - Name of the Podman network to use for Gitea.

@@ -1,0 +1,20 @@
+namespace: ahaydon
+name: gitea
+version: 0.1.0
+readme: README.md
+authors:
+  - Adam Haydon (https://github.com/ahaydon)
+description: Collection of roles and playbooks for deploying Gitea
+license_file: LICENSE
+tags:
+  - gitea
+  - podman
+  - application
+  - linux
+dependencies:
+  "git+https://github.com/ahaydon/ansible-podman-collection.git": "master"
+repository: https://github.com/ahaydon/ansible-gitea-collection
+documentation: https://github.com/ahaydon/ansible-gitea-collection
+homepage: https://github.com/ahaydon/ansible-gitea-collection
+issues: https://github.com/ahaydon/ansible-gitea-collection/issues
+build_ignore: []

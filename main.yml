@@ -1,0 +1,20 @@
+---
+- name: Deploy gitea
+  hosts: all
+
+  vars:
+    gitea_user: gitea
+
+  roles:
+    - role: ahaydon.podman.podman_user
+      podman_user_name: "{{ gitea_user }}"
+      become: yes
+
+    - role: gitea_podman
+      gitea_podman_user: "{{ gitea_user }}"
+      gitea_podman_home: "{{ podman_user_home }}"
+
+    - role: ahaydon.traefik.traefik_http_service
+      traefik_http_service_name: gitea
+      traefik_http_service_url: http://{{ ansible_host }}:3000
+      traefik_http_service_fqdn: gitea.local

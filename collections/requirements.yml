@@ -1,0 +1,8 @@
+---
+collections:
+  - name: https://github.com/ahaydon/ansible-podman-collection.git
+    type: git
+    version: master
+  - name: https://github.com/ahaydon/ansible-traefik-collection.git
+    type: git
+    version: master

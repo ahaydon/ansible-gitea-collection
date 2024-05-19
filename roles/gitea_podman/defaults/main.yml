@@ -1,0 +1,7 @@
+---
+gitea_podman_name: gitea
+gitea_podman_user: gitea
+gitea_podman_group: "{{ gitea_podman_user }}"
+gitea_podman_network: gitea
+gitea_podman_version: latest-rootless
+gitea_podman_db_version: latest
