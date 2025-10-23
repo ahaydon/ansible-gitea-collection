@@ -67,8 +67,8 @@
       GITEA__database__USER: gitea
       GITEA__database__PASSWD: "{{ gitea_podman_db_passwd }}"
     podman_systemd_volumes:
-      - /home/gitea/data:/var/lib/gitea
-      - /home/gitea/config:/etc/gitea
+      - "{{ gitea_podman_home }}/data:/var/lib/gitea"
+      - "{{ gitea_podman_home }}/config:/etc/gitea"
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     podman_systemd_ports:
