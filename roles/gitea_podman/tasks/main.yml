@@ -25,22 +25,14 @@
   loop_control:
     label: "{{ item.path }}"
 
-- name: Run tasks as gitea user
+- name: Create gitea podman network
+  containers.podman.podman_network:
+    name: "{{ gitea_podman_network }}"
   become: yes
   become_user: "{{ gitea_podman_user }}"
   vars:
     ansible_common_remote_group: "{{ gitea_podman_group }}"
-  block:
-    - name: Create gitea podman network
-      containers.podman.podman_network:
-        name: "{{ gitea_podman_network }}"
     
-    - name: Workaround for podman network version
-      ansible.builtin.lineinfile:
-        path: /home/{{ gitea_podman_user }}/.config/cni/net.d/{{ gitea_podman_network }}.conflist
-        regexp: '"cniVersion": "\d+\.\d+\.\d+"'
-        line: '   "cniVersion": "0.4.0",'
-
 - name: Create gitea db container
   ansible.builtin.include_role:
     name: ahaydon.podman.podman_systemd
